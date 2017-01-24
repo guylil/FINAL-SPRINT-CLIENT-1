@@ -49,12 +49,12 @@
                         <li v-if="this.isLoggedIn"  @click="closeMenu()" style="cursor: pointer">
                             <a @click="signOut" >Sign out</a>
                         </li>
-                        <li v-if="!this.isLoggedIn || true" title="User Feels"  @click="closeMenu()">
+                        <li v-if="!this.isLoggedIn" title="User Feels"  @click="closeMenu()">
                             <router-link to="/feelings" active-class="active">User Feels</router-link>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" v-if="user">
-                        <li><a href="#" style="cursor: default;" >{{user.email}}</a></li>
+                        <li><a href="#" class=" userName">{{user.email}}</a></li>
                     </ul>
 
                 </div><!-- /.navbar-collapse -->
@@ -116,5 +116,8 @@
     color: inherit;
     text-decoration: none;
   }
-
+.userName{
+    cursor: default;
+    background-color: lightskyblue;
+}
 </style>

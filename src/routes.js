@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 
-import Home from './components/home';
+import Home from './components/home/home';
 import Signin from './components/signin';
 import Signup from './components/signup';
 import MyMeals from './components/mymeals'
