@@ -13,7 +13,7 @@ import FeelingModal from './components/feeling/feelingModal'
 
 
 if(process.env.NODE_ENV === 'development'){
-  Vue.http.options.root = 'http://localhost:3004';
+  Vue.http.options.root = 'http://localhost:3000';
 }
 
 const app = new Vue({

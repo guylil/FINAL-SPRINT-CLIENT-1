@@ -56,3 +56,13 @@ fieldset {
   background-image: url('./assets/Q.png');
   background-size: 100%;  
 }
+@keyframes animatedBackground {
+	from { background-position: 0% 0%; }
+	to { background-position: 100% 100%; }
+}
+ .animate-area	{ 
+	background-image: url('./assets/backgrounds/pattern.png');
+	background-position: 0px 0px;
+	background-repeat: repeat-x repeat-y;
+	animation: animatedBackground 60s linear infinite;
+}
