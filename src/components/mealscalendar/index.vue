@@ -90,4 +90,7 @@
     }
 </script>
 <style scoped lang="scss">
+.calendar{
+    background-color: white;
+}
 </style>

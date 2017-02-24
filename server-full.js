@@ -62,14 +62,22 @@ function dbConnect() {
 
 	return new Promise((resolve, reject) => {
 		// Connection URL
-		// const dbName = 'FoodTrack'
+		const dbName = 'FoodTrack'
 		var url = `mongodb://guy:123456@ds117209.mlab.com:17209/sprint3`;
-		// var url = `mongodb://localhost:27017/${dbName}`;
+		var urlFallback = `mongodb://localhost:27017/${dbName}`;
 		// Use connect method to connect to the Server
 		mongodb.MongoClient.connect(url, function (err, db) {
 			if (err) {
-				cl('Cannot connect to DB', err)
-				reject(err);
+				cl(`Cannot connect to ${url} DB trying the fallback DB`)
+				mongodb.MongoClient.connect(urlFallback, function (err, db) {
+					if (err) {
+						cl(`Cannot connect to Fallback DB (maybe service is not up?)`, err)
+						reject(err);
+					}
+					else {
+						resolve(db);
+					}
+				});
 			}
 			else {
 				//cl("Connected to DB");
@@ -289,7 +297,7 @@ app.get('/protected', requireLogin, function (req, res) {
 // Kickup our server 
 // Note: app.listen will not work with cors and the socket
 // app.listen(3003, function () {
-http.listen(3004, function () {
+http.listen(3000, function () {
 	// console.log(`REST server is ready at ${baseUrl}`);
 	// console.log(`GET (list): \t\t ${baseUrl}/{entity}`);
 	// console.log(`GET (single): \t\t ${baseUrl}/{entity}/{id}`);

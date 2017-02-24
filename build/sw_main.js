@@ -6,12 +6,12 @@ self.addEventListener('push', function(event) {
   const title = 'Push Codelab';
   const options = {
     body: 'Yay it works.',
-    icon: 'images/icon.png',
-    badge: 'images/badge.png'
+    icon: '../src/assets/sandwich.png',
+    badge: '../src/assets/sandwich.png'
   };
   setTimeout(function() {
     self.registration.showNotification(title, options);
-  }, 5000);
+  }, 1000);
 });
 
 self.addEventListener('notificationclick', function (event) {
@@ -24,11 +24,13 @@ self.addEventListener('notificationclick', function (event) {
 self.addEventListener('message', function (event) {
   let eventMsg = JSON.parse(event.data);
   console.log('msg event: ', eventMsg.msg);
-  const title = 'Checking you are alive';
+  const title = 'How do you feel??';
   const options = {
-    body: eventMsg.msg
+    body: eventMsg.msg,
+    icon: './src/assets/sandwich.png',
+    badge: './src/assets/sandwich.png'
   };
   setTimeout(function () {
     self.registration.showNotification(title, options)
-  }, 5000);
+  }, 1000);
 });

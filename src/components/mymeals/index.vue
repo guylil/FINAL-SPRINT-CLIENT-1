@@ -1,6 +1,6 @@
 <template>
     <section>
-        My meals {{filterOfMeals.food}}
+        <!--My meals {{filterOfMeals.food}}-->
         <meals-filter></meals-filter>
         <meals-calender :filteredMeals="filteredMeals"></meals-calender>
         <!--

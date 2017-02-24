@@ -122,5 +122,6 @@ export default{
     }
     .title{
         text-align: center;
+        color: deeppink;
     }
 </style>
